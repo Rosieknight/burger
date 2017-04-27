@@ -1,15 +1,20 @@
 //The variables need to make a connection to the MySQL database.
 var mysql = require ('mysql');
+var connection;
 
 //I took out my MySQL password. I want to ask questions about loading an
 //active db to heroku - if the masking works on github - before I'm
 //comfortable leaving it in on a public repo.
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: "burgers_db"
-});
+if(process.env.JAWSDB_URL){
+	connection = mysql.createConnection(procress.env.JAWSDB_URL);
+} else {
+	connection = mysql.createConnection({
+		host: 'localhost',
+		user: 'root',
+		password: 'Letfr33domring!',
+		database: "burgers_db"
+	});
+}
 
 //Actually connects to MySQL.
 connection.connect(function(err) {
