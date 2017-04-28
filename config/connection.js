@@ -6,7 +6,7 @@ var connection;
 //active db to heroku - if the masking works on github - before I'm
 //comfortable leaving it in on a public repo.
 if(process.env.JAWSDB_URL){
-	connection = mysql.createConnection(procress.env.JAWSDB_URL);
+	connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
 	connection = mysql.createConnection({
 		host: 'localhost',
